@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          url: https://github.com/migo-amao/configuration
+          timeout: 5
