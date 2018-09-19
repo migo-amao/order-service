@@ -1,9 +1,7 @@
 spring:
   application:
-    name: config-server
+    name: order-service
+
   cloud:
     config:
-      server:
-        git:
-          url: https://github.com/migo-amao/configuration
-          timeout: 5
+      uri: http://localhost:8888
