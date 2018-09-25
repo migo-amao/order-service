@@ -1,9 +1,11 @@
 package wei.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+@Component
 @ConfigurationProperties(prefix = "order")
 public class OrderConfig {
     private String id;
