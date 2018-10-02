@@ -4,19 +4,14 @@ spring:
 
   cloud:
     config:
-      uri: http://localhost:9000
+      uri: ${CONFIG_SERVER_URI:http://localhost:9000}
 
-  profiles:
-    active: dev
+server:
+  port: 0
 
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+---
 
-#  management:
-#    endpoints:
-#      web:
-#        exposure:
-#          include: '*'
+spring:
+  profiles: container
+server:
+  port: 8080
