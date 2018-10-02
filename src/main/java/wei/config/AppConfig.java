@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-@ConfigurationProperties(prefix = "order")
-public class OrderConfig {
+@ConfigurationProperties(prefix = "app")
+public class AppConfig {
     private String id;
-    private Date date;
 
     public String getId() {
         return id;
@@ -17,13 +16,5 @@ public class OrderConfig {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 }

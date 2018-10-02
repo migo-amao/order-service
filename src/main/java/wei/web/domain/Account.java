@@ -1,10 +1,8 @@
 package wei.web.domain;
 
-import java.util.Date;
-
-public class Order {
+public class Account {
     private String id;
-    private Date date;
+    private boolean active;
 
     public String getId() {
         return id;
@@ -14,11 +12,11 @@ public class Order {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
