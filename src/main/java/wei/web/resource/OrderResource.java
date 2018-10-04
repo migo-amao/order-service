@@ -2,7 +2,7 @@ package wei.web.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wei.config.OrderConfig;
+import wei.config.AppConfig;
 import wei.web.client.AccountService;
 import wei.web.domain.Account;
 import wei.web.domain.Order;
@@ -11,7 +11,7 @@ import wei.web.domain.Order;
 public class OrderResource {
 
     @Autowired
-    private OrderConfig orderConfig;
+    private AppConfig appConfig;
 
     @Autowired
     private AccountService accountService;
@@ -19,8 +19,7 @@ public class OrderResource {
     @GetMapping("/orders/{id}")
     public Order getOrder(@PathVariable String id) {
         Order order = new Order();
-        order.setDate(orderConfig.getDate());
-        order.setId(orderConfig.getId());
+        order.setId(appConfig.getId());
         return order;
     }
 
