@@ -5,13 +5,3 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER_URI:http://localhost:9000}
-
-server:
-  port: 0
-
----
-
-spring:
-  profiles: container
-server:
-  port: 8080
