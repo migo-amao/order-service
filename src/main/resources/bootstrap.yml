@@ -5,3 +5,30 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVER_URI:http://localhost:9000}
+
+# This is the setup per http request
+account-service:
+  ribbon:
+#    listOfServers: localhost:8080
+#    ConnectTimeout: 11000
+#    ReadTimeout: 12000
+
+# This is for connection manager setup, default time to live unit is second
+feign:
+  httpclient:
+    max-connections-per-route: 41
+    max-connections: 101
+    time-to-live: 120
+
+logging:
+  level:
+    wei:
+      config:
+        HttpClientConfig: DEBUG
+        AppConfig: DEBUG
+    org:
+      apache:
+        http:
+          impl:
+            conn:
+              PoolingHttpClientConnectionManager: DEBUG
