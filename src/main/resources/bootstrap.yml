@@ -1,17 +1,32 @@
 spring:
   application:
     name: order-service
-
   cloud:
+    bus:
+      enabled: false
     config:
-      uri: ${CONFIG_SERVER_URI:http://localhost:9000}
+      enabled: false
+
+eureka:
+  client:
+    enabled: false
 
 # This is the setup per http request
 account-service:
   ribbon:
-#    listOfServers: localhost:8080
-#    ConnectTimeout: 11000
-#    ReadTimeout: 12000
+    listOfServers: localhost:8080
+    ConnectTimeout: 11000
+    ReadTimeout: 12000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 600000
 
 # This is for connection manager setup, default time to live unit is second
 feign:
@@ -19,16 +34,37 @@ feign:
     max-connections-per-route: 41
     max-connections: 101
     time-to-live: 120
+  hystrix:
+    enabled: true
 
 logging:
   level:
-    wei:
-      config:
+    wei.config:
         HttpClientConfig: DEBUG
         AppConfig: DEBUG
-    org:
-      apache:
-        http:
-          impl:
-            conn:
-              PoolingHttpClientConnectionManager: DEBUG
+    org.apache.http.impl.conn.PoolingHttpClientConnectionManager: DEBUG
+
+---
+
+spring:
+  profiles: config
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URI:http://localhost:9000}
+      enabled: true
+    bus:
+      enabled: true
+
+---
+
+spring:
+  profiles: registry
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    enabled: true
+  instance:
+    preferIpAddress: true
+    hostname: ${HOST_NAME:localhost}

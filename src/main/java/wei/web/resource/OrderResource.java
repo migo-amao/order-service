@@ -26,6 +26,6 @@ public class OrderResource {
     @PostMapping("/orders")
     public void createOrder(@RequestBody Order order) {
         Account account = accountService.findAccount("1");
-        System.out.println("Account for order = " + account);
+        System.out.println("Account for order = " + account.getId());
     }
 }
