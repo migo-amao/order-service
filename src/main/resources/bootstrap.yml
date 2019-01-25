@@ -1,3 +1,7 @@
+server:
+  port: 8280
+  context-path: /order-service
+
 spring:
   application:
     name: order-service
@@ -14,19 +18,35 @@ eureka:
 # This is the setup per http request
 account-service:
   ribbon:
-    listOfServers: localhost:8080
+    listOfServers: localhost:8380
     ConnectTimeout: 11000
     ReadTimeout: 12000
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 0
+
+stock-service:
+  ribbon:
+    listOfServers: localhost:8480
+    ConnectTimeout: 11000
+
 
 hystrix:
   command:
-    default:
+    account-service:
       execution:
         timeout:
           enabled: false
 #        isolation:
 #          thread:
-#            timeoutInMilliseconds: 600000
+#            strategy: THREAD
+#            timeoutInMilliseconds: 10000
+      fallback.isolation.semaphore.maxConcurrentRequests: 200
+  threadpool:
+    account-service:
+      coreSize: 20
+      maxQueueSize: 500000
+      keepAliveTimeMinutes: 2
+      queueSizeRejectionThreshold: 500000
 
 # This is for connection manager setup, default time to live unit is second
 feign:
@@ -36,13 +56,30 @@ feign:
     time-to-live: 120
   hystrix:
     enabled: true
+  client:
+    config:
+      stock-service:
+        connect-timeout: 13000
 
 logging:
   level:
-    wei.config:
+    wei:
+      config:
         HttpClientConfig: DEBUG
         AppConfig: DEBUG
+      web:
+        client:
+          AccountService: DEBUG
     org.apache.http.impl.conn.PoolingHttpClientConnectionManager: DEBUG
+    org:
+      springframework:
+        retry:
+          support: DEBUG
+        cloud:
+          netflix:
+            feign:
+              ribbon: DEBUG
+
 
 ---
 
