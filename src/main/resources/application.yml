@@ -1,0 +1,9 @@
+server:
+  port: 8280
+  servlet.context-path: /order-service
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-uri: http://localhost:8080/authorization-service/oauth/token_key

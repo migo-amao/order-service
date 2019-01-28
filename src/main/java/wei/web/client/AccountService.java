@@ -2,12 +2,10 @@ package wei.web.client;
 
 import feign.FeignException;
 import feign.Logger;
-import feign.Retryer;
 import feign.auth.BasicAuthRequestInterceptor;
 import feign.hystrix.FallbackFactory;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import wei.web.domain.Account;

@@ -1,6 +1,7 @@
 package wei.web.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import wei.config.AppConfig;
 import wei.web.client.AccountService;
@@ -20,6 +21,7 @@ public class OrderResource {
     @Autowired
     private StockService stockService;
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/orders/{id}")
     public Order getOrder(@PathVariable String id) {
         Order order = new Order();
