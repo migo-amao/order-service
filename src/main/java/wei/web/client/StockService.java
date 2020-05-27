@@ -1,5 +1,6 @@
 package wei.web.client;
 
+/*
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,4 +19,4 @@ class StockServiceFallback implements StockService {
     public int findStock(String id) {
         return -1;
     }
-}
+}*/

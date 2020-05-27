@@ -1,10 +1,12 @@
 package wei.config;
 
+/*
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+*/
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +21,7 @@ public class HttpClientConfig {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientConfig.class);
 
-    @Bean
+    /*@Bean
     public CloseableHttpClient httpClient() {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Instantiate Feign HTTP client");
@@ -48,5 +50,5 @@ public class HttpClientConfig {
         }, 10 * 1000, 5 * 1000);
 
         return httpClient;
-    }
+    }*/
 }

@@ -1,14 +1,14 @@
 package wei.config;
 
-import feign.Logger;
-import feign.Retryer;
+//import feign.Logger;
+//import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class FeignConfig {
 
-    //@Bean
+    /*//@Bean
     public Logger.Level loggerLevel() {
         return Logger.Level.FULL;
     }
@@ -16,6 +16,6 @@ public class FeignConfig {
     @Bean
     public Retryer feignRetryer() {
         return new Retryer.Default(100, 2000, 2);
-    }
+    }*/
 
 }

@@ -1,5 +1,6 @@
 package wei.web.client;
 
+/*
 import feign.FeignException;
 import feign.Logger;
 import feign.auth.BasicAuthRequestInterceptor;
@@ -10,7 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import wei.web.domain.Account;
 
-@FeignClient(name = "account-service", configuration = AccountServiceFeignClientConfiguration.class/*, fallbackFactory = AccountServiceFallbackFactory.class*//*, fallback = AccountServiceFallback.class*/)
+@FeignClient(name = "account-service", configuration = AccountServiceFeignClientConfiguration.class*/
+/*, fallbackFactory = AccountServiceFallbackFactory.class*//*
+*/
+/*, fallback = AccountServiceFallback.class*//*
+)
 public interface AccountService {
 
     @GetMapping("/accounts/{id}")
@@ -51,14 +56,16 @@ class AccountServiceFeignClientConfiguration {
         return Logger.Level.FULL;
     }
 
-    /*@Bean
+    */
+/*@Bean
     public Retryer feignRetryer() {
         return new Retryer.Default(100, 2000, 2);
     }
-*/
+*//*
+
     @Bean
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor("user", "password");
     }
 
-}
+}*/
