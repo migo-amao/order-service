@@ -11,52 +11,6 @@ eureka:
   client:
     enabled: false
 
-# This is the setup per http request
-account-service:
-  ribbon:
-    listOfServers: localhost:8380
-    ConnectTimeout: 11000
-    ReadTimeout: 12000
-    MaxAutoRetries: 1
-    MaxAutoRetriesNextServer: 0
-
-stock-service:
-  ribbon:
-    listOfServers: localhost:8480
-    ConnectTimeout: 11000
-
-
-hystrix:
-  command:
-    account-service:
-      execution:
-        timeout:
-          enabled: false
-#        isolation:
-#          thread:
-#            strategy: THREAD
-#            timeoutInMilliseconds: 10000
-      fallback.isolation.semaphore.maxConcurrentRequests: 200
-  threadpool:
-    account-service:
-      coreSize: 20
-      maxQueueSize: 500000
-      keepAliveTimeMinutes: 2
-      queueSizeRejectionThreshold: 500000
-
-# This is for connection manager setup, default time to live unit is second
-feign:
-  httpclient:
-    max-connections-per-route: 41
-    max-connections: 101
-    time-to-live: 120
-  hystrix:
-    enabled: true
-  client:
-    config:
-      stock-service:
-        connect-timeout: 13000
-
 #logging:
 #  level:
 #    wei:
@@ -75,8 +29,6 @@ feign:
 #          netflix:
 #            feign:
 #              ribbon: DEBUG
-
-
 ---
 
 spring:
@@ -87,7 +39,6 @@ spring:
       enabled: true
     bus:
       enabled: true
-
 ---
 
 spring:

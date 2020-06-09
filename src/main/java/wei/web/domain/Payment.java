@@ -1,8 +1,8 @@
 package wei.web.domain;
 
-public class Account {
+public class Payment {
     private String id;
-    private boolean active;
+    private String method;
 
     public String getId() {
         return id;
@@ -12,11 +12,11 @@ public class Account {
         this.id = id;
     }
 
-    public boolean isActive() {
-        return active;
+    public String getMethod() {
+        return method;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setMethod(String method) {
+        this.method = method;
     }
 }
