@@ -43,7 +43,7 @@ public class OrderResource {
                 .post()
                 .uri("/payments")
                 .body(BodyInserters.fromValue(new Payment()))
-                .header(HttpHeaders.AUTHORIZATION, "Bearer" + token.getTokenValue())
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token.getTokenValue())
                 .retrieve()
                 .bodyToMono(Void.class);
     }
