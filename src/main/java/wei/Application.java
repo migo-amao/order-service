@@ -31,7 +31,7 @@ public class Application {
 					//connection.addHandlerLast(new WriteTimeoutHandler(5000, TimeUnit.MILLISECONDS));
 				});
 
-		return WebClient.builder().baseUrl("https://payment-svc-service/payment-service")
+		return WebClient.builder().baseUrl("http://payment-svc-service:8000/payment-service")
 				.clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))
 				.build();
 	}
