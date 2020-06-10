@@ -1,9 +1,9 @@
 server:
-  port: 8280
+  port: 8000
 
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:8000/authorization-service/.well-known/jwks.json
+          jwk-set-uri: http://auth-svc-service:8000/authorization-service/.well-known/jwks.json
